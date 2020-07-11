@@ -1,6 +1,3 @@
-def main():
-    print("Hello, World!")
+from .script import main
 
-
-if __name__ == "__main__":
-    main()
+main()
