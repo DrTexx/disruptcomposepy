@@ -1,0 +1,16 @@
+{
+    "format_converters": {
+        "fcb": {
+            "xml": {
+                "filepath": "C:\\Users\\denver\\Games\\game_related_files\\watch_dogs_2_modding_tools\\MODDING_DISCORD_TOOLS\\Gibbed.Disrupt Tools\\bin\\Gibbed.Disrupt.ConvertBinaryObject.exe",
+                "args": "--xml"
+            }
+        },
+        "xml": {
+            "fcb": {
+                "filepath": "C:\\Users\\denver\\Games\\game_related_files\\watch_dogs_2_modding_tools\\MODDING_DISCORD_TOOLS\\Gibbed.Disrupt Tools\\bin\\Gibbed.Disrupt.ConvertBinaryObject.exe",
+                "args": "--fcb"
+            }
+        }
+    }
+}
