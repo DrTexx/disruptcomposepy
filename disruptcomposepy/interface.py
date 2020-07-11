@@ -1,5 +1,5 @@
-from . import project
-from .paths import project_files_filepath
+from . import project, config
+from .paths import project_files_filepath, config_filepath
 
 
 class DisruptComposePy:
@@ -8,3 +8,6 @@ class DisruptComposePy:
 
     def get_modfiles(self):
         return project.io.get_modfiles(project_files_filepath)
+
+    def get_config(self):
+        return config.io.get_config(config_filepath)
