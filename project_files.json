@@ -8,8 +8,10 @@
                 "generated",
                 "watersplines.fcb.xml"
             ],
-            "target": "fcb",
-            "mutations": []
+            "target": ".fcb",
+            "mutations": [
+                "CLEAR"
+            ]
         }
     ]
 }
