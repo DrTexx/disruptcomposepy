@@ -1,1 +1,1 @@
-project_files_filepath = "disruptcomposepy_files.json"
+project_files_filepath = "project_files.json"
