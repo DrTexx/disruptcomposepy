@@ -8,16 +8,8 @@
                 "generated",
                 "watersplines.fcb.xml"
             ],
-            "method": "auto"
-        },
-        {
-            "filepath": [
-                "worlds",
-                "san_francisco",
-                "generated",
-                "watersplines.fcb"
-            ],
-            "method": "clear"
+            "target": "fcb",
+            "mutations": []
         }
     ]
 }
