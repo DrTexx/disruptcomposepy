@@ -1,4 +1,5 @@
 from . import project
+from .paths import project_files_filepath
 
 
 class DisruptComposePy:
@@ -6,4 +7,4 @@ class DisruptComposePy:
         pass
 
     def get_modfiles(self):
-        return project.io.get_modfiles()
+        return project.io.get_modfiles(project_files_filepath)
