@@ -1,4 +1,5 @@
 setup_env_vars.sh
+_EXAMPLE_ROOT
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
