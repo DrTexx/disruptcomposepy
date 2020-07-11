@@ -1,0 +1,23 @@
+{
+    "src_root": "./_EXAMPLE_ROOT",
+    "files": [
+        {
+            "filepath": [
+                "worlds",
+                "san_francisco",
+                "generated",
+                "watersplines.fcb.xml"
+            ],
+            "method": "auto"
+        },
+        {
+            "filepath": [
+                "worlds",
+                "san_francisco",
+                "generated",
+                "watersplines.fcb"
+            ],
+            "method": "clear"
+        }
+    ]
+}
