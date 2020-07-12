@@ -68,3 +68,35 @@ class ModFile:
             self.is_mutated = True
             for mut in self.mutations:
                 self.data = mut.apply(self)
+
+    def convert(self, c_directory, c_select=0):
+        def _get_converter(c_directory):
+            if self.filetype in c_directory:
+                if self.target in c_directory[self.filetype]:
+                    return c_directory[self.filetype][self.target][c_select]
+
+        def _execute(c):
+            print(f"COMMAND LIST: {command_list}:")
+            p = subprocess.run(command_list, stdout=subprocess.PIPE)
+            if p.returncode != 0:
+                print(
+                    "[!] ERROR WHILE RUNNING TOOL '{str(converter_filepath)}'"
+                )
+                print("--[STDERR]:")
+                if p.stderr:
+                    print(p.stderr.decode("utf-8"))
+                print("--[STDOUT]:")
+                if p.stdout:
+                    print(p.stdout.decode("utf-8"))
+
+            if p.stdout:
+                print(p.stdout.decode("utf-8"))
+
+        converter = _get_converter(c_directory)
+
+        command_list = [str(converter.filepath.resolve())]
+        [command_list.append(str(arg)) for arg in converter.args]
+        command_list.append(str(self.filepath.absolute()))
+        # command_list.append(str(self.target_filepath.relative_to(".")))
+
+        _execute(command_list)
