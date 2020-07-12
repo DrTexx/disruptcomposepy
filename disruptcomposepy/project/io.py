@@ -14,6 +14,8 @@ def get_modfiles(project_files_filepath):
     with open(project_files_filepath) as f:
         data = json.load(f)
 
-        modfiles = [ModFile(file) for file in data["files"]]
+        data_settings = data["settings"]
+
+        modfiles = [ModFile(file, data_settings) for file in data["files"]]
 
         return modfiles
