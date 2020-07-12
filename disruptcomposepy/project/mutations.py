@@ -4,7 +4,7 @@ class Mutation:
 
     def _gen_mutation(self, function):
         def func(data):
-            function(data)
+            return function(data)
 
         return func
 
