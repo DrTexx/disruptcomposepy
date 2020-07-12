@@ -9,5 +9,5 @@ class DisruptComposePy:
     def get_modfiles(self):
         return project.io.get_modfiles(project_files_filepath)
 
-    def get_config(self):
-        return config.io.get_config(config_filepath)
+    def get_converters(self):
+        return config.io.get_converters(config_filepath)

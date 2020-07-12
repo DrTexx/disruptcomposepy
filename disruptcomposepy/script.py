@@ -5,8 +5,9 @@ def main():
     disco = DisruptCompose()
 
     modfiles = disco.get_modfiles()
-    config = disco.get_config()
+    c_directory = disco.get_converters()[1]
 
-    modfiles = [modfile.convert(config) for modfile in modfiles]
+
+    [modfile.convert(c_directory) for modfile in modfiles]
 
     print(f"modfiles: {modfiles}")
