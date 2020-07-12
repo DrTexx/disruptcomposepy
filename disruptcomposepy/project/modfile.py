@@ -20,6 +20,22 @@ def resolve_target(target, filetype):
     exit()
 
 
+def fetch_mutations(entry):
+    output = []
+
+    if "mutations" not in entry:
+        print("no mutations registered")
+        return output
+
+    muts = entry["mutations"]
+    for mut in muts:
+        mut = mut.upper()
+        if mut in mutations:
+            output.append(mutations[mut])
+
+    return output
+
+
 class ModFile:
     def __init__(self, entry):
         self.filepath = Path(*entry["filepath"])
