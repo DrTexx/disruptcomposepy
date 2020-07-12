@@ -1,5 +1,6 @@
 setup_env_vars.sh
-_EXAMPLE_ROOT
+_EXAMPLE_ROOT/**
+tools/Gibbed.Disrupt Tools
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
