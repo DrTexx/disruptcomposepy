@@ -58,3 +58,58 @@ def write_modfiles(modfiles, build_path, namespace):
 
     print(files_written)
 
+
+def clean_build_dir(build_path):
+    build_path = Path(build_path)
+
+    print("--[ CLEANING ]--")
+
+    if not build_path.exists():
+        print("SKIPPED: no build path to clean")
+        return
+
+    if len(os.listdir(build_path)) == 0:
+        print("SKIPPED: build path is empty")
+        return
+
+    fwj_filepath = _fwj(build_path)  # must be after build path exist check
+
+    if not fwj_filepath.exists():
+        print(
+            f"'{fwj_filepath}' is missing, assuming clean issue"
+            + " or user modifications."
+        )
+        raise Exception(
+            f"'{fwj_filepath}' is missing."
+            + f" Please manually clean {build_path} to"
+            + " remove the potential for unintended deletions."
+        )
+
+    with open(fwj_filepath, "r") as f:
+        data = json.load(f)
+        for w_file in data["files_written"]:
+            w_file = Path(w_file)
+            print(
+                f"Unlinking {w_file.relative_to(build_path.absolute())}... ",
+                end="",
+                flush=True,
+            )
+            if in_directory(w_file, build_path):
+                w_file.unlink()
+                print("DONE")
+            else:
+                print(
+                    "SKIPPED: Please don't try deleting things outside"
+                    + " of the build directory :^)"
+                )
+
+        rmdir_recursive(build_path, verbose=False)
+
+    fwj_filepath.unlink()
+
+    try:
+        build_path.rmdir()
+    except Exception:
+        raise Exception(
+            "Failed to clean build path. This is likely due to an unexpected file/s being encountered in build directory while cleaning."
+        )
