@@ -63,6 +63,15 @@ class ModFile:
 
         return out
 
+    def update_filepath(self, new_filepath):
+        new_filepath = Path(new_filepath)
+        if new_filepath.is_file():
+            raise FileExistsError(
+                "File already exists at filepath. Ensure build"
+                + " dir has been cleaned."
+            )
+        self.filepath = new_filepath
+
     def apply_mutations(self):
         if self.mutations:
             self.is_mutated = True
