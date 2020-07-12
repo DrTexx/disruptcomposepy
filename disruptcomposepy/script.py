@@ -3,6 +3,7 @@ from .interface import DisruptComposePy as DisruptCompose
 
 def main():
     disco = DisruptCompose()
+    disco.prepare()
 
     modfiles = disco.get_modfiles()
 
