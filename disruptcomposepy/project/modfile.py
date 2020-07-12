@@ -12,11 +12,11 @@ def _debug_modfile(modfile):
             print(f"{key} == {getattr(modfile, key)}\n")
 
 
-def resolve_method(method, filetype):
-    if method is not None:
-        return method
+def resolve_target(target, filetype):
+    if target is not None:
+        return target
     # process of elimination, which method makes sense for filetype x
-    print("WIP: resolve method")
+    print("WIP: resolve target type")
     exit()
 
 
